@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 API_KEY = dotenv_values()["API_KEY"]
-CITY = "Jyväskylä"
+CITY = "Jämsä"
 
 
 def get_coordinates(address, city):
@@ -36,7 +36,7 @@ def get_coordinates(address, city):
 
 
 driver = webdriver.Chrome()
-driver.get(f"https://asunnot.oikotie.fi/myytavat-asunnot?pagination=1&locations=%5B%5B104,6,%22{city}%22%5D%5D&cardType=100")
+driver.get(f"https://asunnot.oikotie.fi/myytavat-asunnot?pagination=1&locations=%5B%5B104,6,%22{CITY}%22%5D%5D&cardType=100")
 time.sleep(3)
 for i in range(0, 12):
     ActionChains(driver) \
@@ -80,4 +80,5 @@ while True:
 
 file = open("houses.csv", "w")
 writer = csv.writer(file)
+writer.writerow(["price", "lat", "lon"])
 writer.writerows(apartments)
