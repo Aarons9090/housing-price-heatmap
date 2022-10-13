@@ -12,5 +12,5 @@ This program can visualise apartment prices from certain cities found on Oikotie
 
  - Code is messy
  - Data_to_map range_color must be edited manually
- - Cities less than one page of apartments will crash
+ - Cities with less than one page of apartments will crash the program
 
